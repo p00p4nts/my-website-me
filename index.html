@@ -1,10 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>brendon</title>
+        <title>Brendon's Cool Story</title>
+        <style>
+            body {
+                font-family: 'Courier New', Courier, monospace;
+                background-color: #000; /* Black background */
+                color: #fff; /* White text */
+                margin: 0;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                overflow: hidden;
+            }
+            h1 {
+                font-size: 3em;
+                margin-bottom: 20px;
+            }
+            #story {
+                font-size: 1.5em;
+                line-height: 1.5;
+                text-align: center;
+                width: 80%;
+                max-width: 800px;
+                animation: blink-caret 1s step-end infinite; /* Cool blinking caret */
+            }
+            @keyframes blink-caret {
+                50% {
+                    border-right: 2px solid #fff; /* Blinking caret */
+                }
+            }
+        </style>
     </head>
     <body>
-        <h1>Hello i am brendon</h1>
-        <p>gy</p>
+        <h1>Hello, I am Brendon</h1>
+        <p id="story"></p>
+        <script>
+            const storyText = "Hello i am brendon and i am u and u is me me is u";
+            let index = 0;
+
+            function typeStory() {
+                if (index < storyText.length) {
+                    document.getElementById("story").textContent += storyText.charAt(index);
+                    index++;
+                    setTimeout(typeStory, 75); // Faster typing speed for a cooler effect
+                }
+            }
+
+            window.onload = typeStory;
+        </script>
     </body>
 </html>
